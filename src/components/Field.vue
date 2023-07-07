@@ -100,8 +100,8 @@
 <style>
     .field {
         display: grid;
-        width: 512px;
-        height: 512px;
+        width: max(27vw, 48vh);
+        height: max(27vw, 48vh);
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         gap: 5px 5px;
     }
