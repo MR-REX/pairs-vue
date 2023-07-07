@@ -1,16 +1,26 @@
-export default class {
-    constructor() {
-        this.stored = {}
-    }
+export default new class {
+    #stored = [];
+    #muted = false;
 
     register(uniqueid, file) {
-        this.stored[uniqueid] = new Audio(file);
+        this.#stored[uniqueid] = new Audio(file);
+    }
+
+    isMuted() {
+        return this.#muted;
+    }
+
+    setMuted(muted) {
+        this.#muted = muted;
     }
 
     play(uniqueid) {
-        let audio = this.stored[uniqueid];
+        let audio = this.#stored[uniqueid];
 
         if (audio === undefined)
+            return false;
+
+        if (this.#muted)
             return false;
 
         if (!audio.paused) {

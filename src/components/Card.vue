@@ -54,4 +54,21 @@
     .card:hover {
         filter: brightness(97%);
     }
+
+    .dark-theme .card {
+        box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    .dark-theme .card.hidden {
+        background-color: #34495e !important;
+    }
+
+    .dark-theme .card {
+        filter: brightness(75%);
+    }
+
+    .dark-theme .card:hover {
+        filter: brightness(70%);
+    }
 </style>

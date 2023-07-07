@@ -8,14 +8,13 @@
     import Card from './Card.vue';
     
     import colors from '../colors.js';
-    import Sounds from '../sounds.js';
+    import sounds from '../sounds.js';
 
     const SELECT_COOLDOWN = 0.5 * 1000;
-    const sounds = new Sounds();
 
     sounds.register('card_pick1', require('../assets/sounds/pick1.mp3'));
     sounds.register('card_pick2', require('../assets/sounds/pick2.mp3'));
-    sounds.register('pair_guessed', require('../assets/sounds/guessed.mp3'));
+    sounds.register('card_guess', require('../assets/sounds/guessed.mp3'));
 
     export default {
         name: 'Field',
@@ -46,7 +45,7 @@
                         this.selectedCard.setLocked(true);
                         this.selectedCard = null;
 
-                        sounds.play('pair_guessed');
+                        sounds.play('card_guess');
 
                         return;
                     }
