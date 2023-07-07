@@ -6,7 +6,7 @@
                       @toggle="onThemeChanged">
         </ToggleButton>
         <ToggleButton :class="{'bg-green': !soundsMuted, 'bg-red fg-white': soundsMuted}"
-                      :icon="soundsMuted ? 'volume_off' : 'volume_on'"
+                      :icon="soundsMuted ? 'fa-solid fa-volume-mute' : 'fa-solid fa-volume-high'"
                       @toggle="onVolumeChanged">
         </ToggleButton>
     </div>
