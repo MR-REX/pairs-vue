@@ -1,5 +1,5 @@
 <template>
-    <Field></Field>
+    <Field ref="field"></Field>
     <div class="controls">
         <ToggleButton :class="{'bg-blue fg-yellow': !darkTheme, 'bg-black fg-white': darkTheme}"
                       :icon="darkTheme ? 'moon' : 'sun'"
@@ -9,6 +9,10 @@
                       :icon="soundsMuted ? 'fa-solid fa-volume-mute' : 'fa-solid fa-volume-high'"
                       @toggle="onVolumeChanged">
         </ToggleButton>
+        <RoundButton class="bg-blue fg-white"
+                     icon="fa-solid fa-arrow-rotate-right"
+                     @click="onRestart">
+        </RoundButton>
     </div>
 </template>
 
@@ -40,6 +44,9 @@
             onVolumeChanged(toggleButton, isEnabled) {
                 this.soundsMuted = isEnabled;
                 sounds.setMuted(isEnabled);
+            },
+            onRestart(event) {
+                this.$refs.field.restart();
             }
         }
     }

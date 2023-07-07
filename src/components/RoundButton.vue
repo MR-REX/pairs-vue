@@ -53,12 +53,24 @@
         background-color: #3498db;
     }
 
+    .dark-theme .round-button.bg-blue {
+        background-color: #1c577e;
+    }
+
     .round-button.bg-green {
         background-color: #3ad47a;
     }
 
+    .dark-theme .round-button.bg-green {
+        background-color: #145f33;
+    }
+
     .round-button.bg-red {
         background-color: #d45546;
+    }
+
+    .dark-theme .round-button.bg-red {
+        background-color: #88291e;
     }
 
     .round-button.bg-black {
@@ -67,6 +79,10 @@
 
     .round-button.fg-white .icon {
         filter: invert(100%);
+    }
+
+    .dark-theme .round-button.fg-white .icon {
+        filter: invert(90%);
     }
 
     .round-button.fg-yellow .icon {

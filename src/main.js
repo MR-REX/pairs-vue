@@ -4,9 +4,21 @@ import App from './App.vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { faMoon, faSun, faVolumeMute, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMoon,
+    faSun,
+    faVolumeMute,
+    faVolumeHigh,
+    faArrowRotateRight
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faMoon, faSun, faVolumeMute, faVolumeHigh);
+library.add(
+    faMoon,
+    faSun,
+    faVolumeMute,
+    faVolumeHigh,
+    faArrowRotateRight
+);
 
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)

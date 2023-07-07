@@ -1,5 +1,5 @@
 <template>
-    <div class="field">
+    <div class="field" :style="{gridTemplateColumns: '1fr '.repeat(size)}">
         <Card ref="cards" v-for="index in size * size" :key="index" @select="onSelect"></Card>
     </div>
 </template>
@@ -9,6 +9,8 @@
     
     import colors from '../colors.js';
     import sounds from '../sounds.js';
+
+    import { shuffleArray, repeatArray } from '../utils.js';
 
     const SELECT_COOLDOWN = 0.5 * 1000;
 
@@ -68,33 +70,29 @@
                 this.selectedCard = card;
                 sounds.play('card_pick1');
             },
-            generate() {
+            setSize(size) {
+                this.size = size;
+            },
+            restart() {
                 let colorNames = Object.keys(colors);
-                let array = [];
+                let array = repeatArray(colorNames, this.size ** 2);
 
-                for (let i = 0; i < this.size * this.size / colorNames.length; i++)
-                    array.push(...colorNames);
+                shuffleArray(array, 3);
 
-                array.length = this.size * this.size;
+                for (let i = 0; i < array.length; i++) {
+                    let card = this.$refs.cards[i];
 
-                for (let i = array.length - 1; i > 0; i--) {
-                    let j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
+                    card.setSelected(false);
+                    card.setLocked(false);
+
+                    card.setColor(colors[array[i]]);
                 }
-
-                let cards = this.$refs.cards;
-
-                for (let i = 0; i < cards.length; i++)
-                    cards[i].setColor(colors[array[i]]);
-
-                let app = document.querySelector('.field');
-
-                let gridSize = Array(this.size).fill('1fr');
-                app.style = `grid-template-columns: ${gridSize.join(' ')}`;
+                
+                this.selectedCard = null;
             }
         },
         mounted() {
-            this.generate();
+            this.restart();
         }
     }
 </script>
