@@ -50,4 +50,8 @@
     .card.hidden {
         background-color: #FFF !important;
     }
+
+    .card:hover {
+        filter: brightness(97%);
+    }
 </style>
