@@ -175,6 +175,10 @@
 
     .settings > .content > .number-selector {
         margin-top: 2vw;
-        margin-bottom: 4vw;
+        margin-bottom: 1vw;
+    }
+
+    .settings > .content > .button {
+        margin-top: 3vw;
     }
 </style>
