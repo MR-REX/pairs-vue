@@ -17,6 +17,7 @@
     sounds.register('card_pick1', require('../assets/sounds/pick1.mp3'));
     sounds.register('card_pick2', require('../assets/sounds/pick2.mp3'));
     sounds.register('card_guess', require('../assets/sounds/guessed.mp3'));
+    sounds.register('win', require('../assets/sounds/win.mp3'));
 
     export default {
         name: 'Field',
@@ -31,6 +32,19 @@
             }
         },
         methods: {
+            getLeftCardCount() {
+                let cardCount = 0;
+                let lockedCount = 0;
+
+                this.$refs.cards.forEach((card) => {
+                    if (card.isLocked())
+                        lockedCount++;
+
+                    cardCount++;
+                });
+
+                return cardCount - lockedCount;
+            },
             onSelect(card) {
                 if (!this.canSelect)
                     return;
@@ -48,6 +62,9 @@
                         this.selectedCard = null;
 
                         sounds.play('card_guess');
+
+                        // if (this.getLeftCardCount() === 0)
+                        //     this.$parent.onWin();
 
                         return;
                     }
@@ -81,6 +98,9 @@
 
                 for (let i = 0; i < array.length; i++) {
                     let card = this.$refs.cards[i];
+
+                    if (card === null || card === undefined)
+                        continue;
 
                     card.setSelected(false);
                     card.setLocked(false);

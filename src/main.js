@@ -9,7 +9,9 @@ import {
     faSun,
     faVolumeMute,
     faVolumeHigh,
-    faArrowRotateRight
+    faArrowRotateRight,
+    faCaretLeft,
+    faCaretRight
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -17,7 +19,9 @@ library.add(
     faSun,
     faVolumeMute,
     faVolumeHigh,
-    faArrowRotateRight
+    faArrowRotateRight,
+    faCaretLeft,
+    faCaretRight
 );
 
 createApp(App)

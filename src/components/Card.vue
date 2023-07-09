@@ -31,6 +31,9 @@
             setLocked(locked) {
                 this.locked = locked;
             },
+            isLocked() {
+                return this.locked;
+            },
             onClick() {
                 if (!this.locked)
                     this.$emit('select', this);

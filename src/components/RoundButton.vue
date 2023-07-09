@@ -47,6 +47,8 @@
 
     .round-button .icon {
         height: 50%;
+        -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .15));
+        filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .15));
     }
 
     .round-button.bg-blue {
@@ -58,7 +60,7 @@
     }
 
     .round-button.bg-green {
-        background-color: #3ad47a;
+        background-color: #1abc9c;
     }
 
     .dark-theme .round-button.bg-green {
