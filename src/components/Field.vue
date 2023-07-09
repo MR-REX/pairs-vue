@@ -10,7 +10,7 @@
     import colors from '../colors.js';
     import sounds from '../sounds.js';
 
-    import { shuffleArray, repeatArray } from '../utils.js';
+    import { shuffleArray, generatePairsArray } from '../utils.js';
 
     const SELECT_COOLDOWN = 0.5 * 1000;
 
@@ -63,8 +63,8 @@
 
                         sounds.play('card_guess');
 
-                        // if (this.getLeftCardCount() === 0)
-                        //     this.$parent.onWin();
+                        if (this.getLeftCardCount() === 0)
+                            this.$parent.onWin();
 
                         return;
                     }
@@ -92,27 +92,23 @@
             },
             restart() {
                 let colorNames = Object.keys(colors);
-                let array = repeatArray(colorNames, this.size ** 2);
+                let array = generatePairsArray(colorNames, this.size ** 2 / 2);
 
                 shuffleArray(array, 3);
 
-                for (let i = 0; i < array.length; i++) {
-                    let card = this.$refs.cards[i];
+                setTimeout(() => {
+                    for (let i = 0; i < array.length; i++) {
+                        let card = this.$refs.cards[i];
 
-                    if (card === null || card === undefined)
-                        continue;
+                        card.setSelected(false);
+                        card.setLocked(false);
 
-                    card.setSelected(false);
-                    card.setLocked(false);
+                        card.setColor(colors[array[i]]);
+                    }
 
-                    card.setColor(colors[array[i]]);
-                }
-                
-                this.selectedCard = null;
+                    this.selectedCard = null;
+                }, 100);
             }
-        },
-        mounted() {
-            this.restart();
         }
     }
 </script>

@@ -7,12 +7,18 @@ export function shuffleArray(array, count = 1) {
     }
 }
 
-export function repeatArray(source, count = 1) {
+export function randomInt(min, max) {
+    let random = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(random);
+}
+
+export function generatePairsArray(source, count = 1) {
     let array = [];
 
-    for (let i = 0; i < count; i++)
-        array.push(...source);
+    for (let i = 0; i < count; i++) {
+        let value = source[randomInt(0, source.length - 1)];
+        array.push(value, value);
+    }
 
-    array.length = count;
     return array;
 }
