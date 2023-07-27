@@ -1,4 +1,4 @@
-![Project logo](https://raw.githubusercontent.com/MR-REX/pairs-vue/master/src/assets/images/logo.svg)
+![Logo](https://raw.githubusercontent.com/MR-REX/pairs-vue/master/src/assets/images/logo.svg)
 
 # About this project
 
