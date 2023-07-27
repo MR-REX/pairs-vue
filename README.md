@@ -1,4 +1,17 @@
-# pairs-vue
+![Project logo](https://raw.githubusercontent.com/MR-REX/pairs-vue/master/src/assets/images/logo.svg)
+
+# About this project
+
+This is a simple project to implement a pairs game using VueJS.
+
+## Features
+
+- Ability to choose game field size.
+- Nice interface and sounds.
+- Dark theme support.
+- Ability to turn off sound effects.
+
+# How to start
 
 ## Project setup
 ```
